@@ -93,7 +93,7 @@ docker run -it -d \
   
 * WAF CC Blocking
 
-  **10**Requests Max within**60**seconds
+  Default: **10** Requests Max within **60** seconds
   
   Can be modified in config.lua
   
