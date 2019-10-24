@@ -7,7 +7,7 @@ RUN echo "====> Install dependencies" && \
         /etc/apk/repositories && \
     apk update && \
     apk add --no-cache readline-dev pcre-dev \
-    perl make gcc g++ git zlib-dev libc-dev linux-headers && \
+        perl make gcc g++ git zlib-dev libc-dev linux-headers && \
     echo "====> Install Openssl" && \
     cd /tmp && \
     wget --no-check-certificate https://www.openssl.org/source/openssl-1.1.1c.tar.gz && \
@@ -52,7 +52,7 @@ RUN echo "====> Install dependencies" && \
     rm -rf /usr/local/openresty/nginx/conf/waf/config.lua && \
     mkdir /usr/local/openresty/waf_logs && \
     apk del --purge && \
-    apk del gcc g++ make git --purge && \
+    apk del gcc g++ make git perl --purge && \
     apk del --purge && \
     rm -rf /tmp/*
 
