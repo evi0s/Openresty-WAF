@@ -10,15 +10,15 @@ SSL Cert & PrivKey required
 
 * **Openresty**
   
-  version 1.13.6.2
+  version 1.15.8.1
 
 * **Nginx**
   
-  version 1.13.6
+  version 1.15.8
 
 * **Openssl**
 
-  version 1.0.2j
+  version 1.1.1c
   
 * **WAF**
 
@@ -101,3 +101,4 @@ docker run -it -d \
 
 * [Openresty](http://openresty.org/cn/)
 * [unixhot/waf](https://github.com/unixhot/waf)
+
