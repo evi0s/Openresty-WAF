@@ -51,10 +51,8 @@ RUN echo "====> Install dependencies" && \
     cp -a ./waf/waf /usr/local/openresty/nginx/conf/ && \
     rm -rf /usr/local/openresty/nginx/conf/waf/config.lua && \
     mkdir /usr/local/openresty/waf_logs && \
-    apk del --purge && \
-    apk del gcc g++ make git perl --purge && \
-    apk del --purge && \
-    rm -rf /tmp/*
+    apk del gcc g++ make git perl linux-headers --purge && \
+    rm -rf /tmp/* && rm -rf /var/cache/apk/*
 
 COPY nginx.conf /usr/local/openresty/nginx/conf/nginx.conf
 
