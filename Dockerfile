@@ -1,5 +1,5 @@
 # Dockerfile to build Openresety Installed Containers with WAF (alpine)
-FROM alpine:3.10.3
+FROM alpine:3
 MAINTAINER evi0s
 
 RUN echo "====> Install dependencies" && \
@@ -23,10 +23,10 @@ RUN echo "====> Install dependencies" && \
     export PATH=$PATH:/usr/local/openssl/bin && \
     echo "===> Install Openresty" && \
     cd /tmp && \
-    wget --no-check-certificate https://openresty.org/download/openresty-1.15.8.1.tar.gz && \
-    tar zxf openresty-1.15.8.1.tar.gz && \
-    cd openresty-1.15.8.1 && \
-    sed -i 's/\/\.openssl//g' bundle/nginx-1.15.8/auto/lib/openssl/conf && \
+    wget --no-check-certificate https://openresty.org/download/openresty-1.17.8.2.tar.gz && \
+    tar zxf openresty-1.17.8.2.tar.gz && \
+    cd openresty-1.17.8.2 && \
+    sed -i 's/\/\.openssl//g' bundle/nginx-1.17.8/auto/lib/openssl/conf && \
     ./configure --prefix=/usr/local/openresty \
         --with-luajit --with-http_stub_status_module \
         --with-pcre --with-pcre-jit --with-openssl=/usr/local/openssl \
@@ -58,9 +58,10 @@ COPY nginx.conf /usr/local/openresty/nginx/conf/nginx.conf
 
 COPY config.lua /usr/local/openresty/nginx/conf/waf/config.lua
 
-# Add user nginx & chown dir
-RUN adduser -s /sbin/nologin -D nginx && \
-    chown -R nginx:nginx /usr/local/openresty/
+# Chown dir
+RUN addgroup -g 82 -S www-data && \
+    adduser -u 82 -D -S -G www-data www-data && \
+    chown -R www-data:www-data /usr/local/openresty/
 
 # Expose ports
 EXPOSE 80 443
