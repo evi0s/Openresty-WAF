@@ -2,7 +2,7 @@
 
 Openresty with WAF installed
 
-Force HTTPS & HTTP2
+Force HTTPS & HTTP2, TLSv1.3 Supported
 
 SSL Cert & PrivKey required
 
@@ -10,11 +10,11 @@ SSL Cert & PrivKey required
 
 * **Openresty**
   
-  version 1.15.8.1
+  version 1.17.8.2
 
 * **Nginx**
   
-  version 1.15.8
+  version 1.17.8.2
 
 * **Openssl**
 
